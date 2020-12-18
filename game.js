@@ -18,7 +18,7 @@ $(".btn").click(function() {
   var userChosenGoat = this.id;
   userClickedPattern.push(userChosenGoat);
   playSound(userChosenGoat);
-  checkAnswer(userClickedPattern.length-1);
+  checkAnswer(userClickedPattern.length - 1);
   // Need to define current level
 });
 
@@ -26,22 +26,22 @@ $(".btn").click(function() {
 function checkAnswer(currentLevel) {
   // checking
   if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
-    if (userClickedPattern.length === gamePattern.length){
-    setTimeout(function(){
-      nextSequence();
-    },1000);
-    userClickedPattern = [];
+    if (userClickedPattern.length === gamePattern.length) {
+      setTimeout(function() {
+        nextSequence();
+      }, 1000);
+      userClickedPattern = [];
     }
-// No match
+    // No match
   } else {
     var wrong = new Audio("sounds/wrong.mp3");
     wrong.play();
     $("h1").text("Game Over, press any key to restart");
     $("body").addClass("game-over");
-    setTimeout(function(){
-        $("body").removeClass("game-over");
-    },300);
-startOver();
+    setTimeout(function() {
+      $("body").removeClass("game-over");
+    }, 300);
+    startOver();
   }
 };
 
@@ -63,22 +63,9 @@ function playSound(name) {
 };
 
 // Restart after a wrong answer
-function startOver(){
-started = false;
-level = 0;
-gamePattern = [];
-userClickedPattern = [];
+function startOver() {
+  started = false;
+  level = 0;
+  gamePattern = [];
+  userClickedPattern = [];
 };
-
-// Workaround for testing as chrome doesn't autoplay without user interaction
-// $(document).on("keydown", function(event){
-//
-//   if (event.key)
-//
-//   {
-//
-//     nextSequence();
-//
-//   }
-
-// });
