@@ -21,7 +21,13 @@ p{
   margin: auto;
 
 }
-
+.start{
+  font-weight: bold;
+  font-size: 5vmin;
+  color: #011F3F;
+  border: 5px solid black;
+  border-radius: 20%;
+}
 .btn {
   margin: 25px;
   display: inline-block;

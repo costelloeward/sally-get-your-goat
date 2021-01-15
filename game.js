@@ -4,8 +4,17 @@ var gamePattern = [];
 var started = false;
 var level = 0;
 
-// Starting the game
+// Starting the game with a keypress
 $("body").on("keydown", function() {
+  if (!started) {
+    $("#level-title").text("Level " + level);
+    nextSequence();
+    started = true;
+  }
+});
+
+// starting the game without a keypress
+$(".start").on("click", function() {
   if (!started) {
     $("#level-title").text("Level " + level);
     nextSequence();
